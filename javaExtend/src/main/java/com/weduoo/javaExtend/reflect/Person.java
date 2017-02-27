@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
-	private String name;
+	public String name;
 	
 	public Person() {
 		super();
@@ -19,7 +19,8 @@ public class Person implements Serializable {
 		this.name = name;
 	}
 
-	public Person(String name) {
+	@SuppressWarnings("unused")
+	private Person(String name) {
 		super();
 		this.name = name+"=======";
 		System.out.println(name+"=======");
@@ -46,5 +47,14 @@ public class Person implements Serializable {
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + "]";
+	}
+	@SuppressWarnings("unused")
+	private String getSomeThing() {
+		return "这是个私有的函数";
+	}
+	
+	@SuppressWarnings("unused")
+	private void testPrivate(){
+		System.out.println("this is a private method");
 	}
 }
